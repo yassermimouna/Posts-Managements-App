@@ -22,7 +22,19 @@
             <ion-button type="submit" expand="block"  class="col-login">Sign In
               <ion-icon name="log-in" class="icon-login"></ion-icon></ion-button>
             <a [routerLink]="['/forgot-password']" class="small-text">Forgot Password?</a>
-          </ion-col>
+          </ion-col>   
+        </ion-row>
+  
+        <ion-row>
+          <ion-col>         
+          <ion-item lines="full">
+          <ion-label> Don't have account ?</ion-label>
+        </ion-item>
+      </ion-col>
+      <ion-col>  
+          <ion-button expand="block" routerLink="/tabs/register" routerLinkActive="router-link-active"  class="col-login" style="--background : #BF97BA">Register
+            <ion-icon name="add-circle-outline" class="icon-login"></ion-icon></ion-button>
+        </ion-col>
         </ion-row>
       </form>
       <ion-card-header >
