@@ -3,26 +3,32 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
-import { SplashScreen } from '@ionic-native/splash-screen/ngx';
-import { StatusBar } from '@ionic-native/status-bar/ngx';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { Camera } from '@ionic-native/camera/ngx';
-import { IonicStorageModule } from '@ionic/storage';
+import { AppRoutingModule } from './app-routing.module';
 
+import { provideFirebaseApp,initializeApp } from '@angular/fire/app';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { provideStorage, getStorage} from '@angular/fire/storage';
+import { provideAuth,getAuth } from '@angular/fire/auth';
+
+const firebaseConfig = {
+  apiKey: 'AIzaSyDDXRUXvaZ5gYW0xgVOZnSIa7lDnf8kZzw',
+  authDomain: 'posts-management-881ac.firebaseapp.com',
+  projectId: 'posts-management-881ac',
+  storageBucket: 'posts-management-881ac.appspot.com',
+  messagingSenderId: '646761391144',
+  appId: '1:646761391144:web:b5a1af41aadfb5d123c11d'
+};
 @NgModule({
   declarations: [AppComponent],
-  entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,
-    IonicStorageModule.forRoot()
+    provideFirebaseApp(() => initializeApp(firebaseConfig)),
+    provideFirestore(() => getFirestore()),
+    provideStorage(() => getStorage()),
+    provideAuth(() => getAuth())
   ],
-  providers: [
-    StatusBar,
-    SplashScreen,
-    Camera,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
-  ],
-  bootstrap: [AppComponent]
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  bootstrap: [AppComponent],
 })
 export class AppModule {}
