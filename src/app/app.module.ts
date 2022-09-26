@@ -11,6 +11,9 @@ import { provideFirebaseApp,initializeApp } from '@angular/fire/app';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { provideStorage, getStorage} from '@angular/fire/storage';
 import { provideAuth,getAuth } from '@angular/fire/auth';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { AngularFireModule } from '@angular/fire/compat'
 
 const firebaseConfig = {
   apiKey: 'AIzaSyDDXRUXvaZ5gYW0xgVOZnSIa7lDnf8kZzw',
@@ -23,10 +26,9 @@ const firebaseConfig = {
 @NgModule({
   declarations: [AppComponent],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,
-    provideFirebaseApp(() => initializeApp(firebaseConfig)),
-    provideFirestore(() => getFirestore()),
-    provideStorage(() => getStorage()),
-    provideAuth(() => getAuth())
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireAuthModule,
+    AngularFireStorageModule
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
