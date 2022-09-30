@@ -29,6 +29,15 @@ const routes: Routes = [
         path: '',
         redirectTo: '/loginPage',
         pathMatch: 'full'
+      },
+      {
+        path: 'postspage',
+        children: [
+          {
+            path: '',
+            loadChildren: () => import('../posts-page/posts-page.module').then( m => m.PostsPageModule)
+          }
+        ]
       }
     ]
   },
