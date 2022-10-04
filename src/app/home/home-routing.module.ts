@@ -38,6 +38,33 @@ const routes: Routes = [
             loadChildren: () => import('../posts-page/posts-page.module').then( m => m.PostsPageModule)
           }
         ]
+      },
+      {
+        path: 'addpost',
+        children: [
+          {
+            path: '',
+            loadChildren: () => import('../addpost/addpost.module').then( m => m.AddpostPageModule)
+          }
+        ]
+      },
+      {
+        path: 'addfriend',
+        children: [
+          {
+            path: '',
+            loadChildren: () => import('../addfriend/addfriend.module').then( m => m.AddfriendPageModule)
+          }
+        ]
+      },
+      {
+        path: 'settings',
+        children: [
+          {
+            path: '',
+            loadChildren: () => import('../settings/settings.module').then( m => m.SettingsPageModule)
+          }
+        ]
       }
     ]
   },

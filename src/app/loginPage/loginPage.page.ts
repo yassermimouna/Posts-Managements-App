@@ -4,6 +4,7 @@
 /* eslint-disable @typescript-eslint/quotes */
 /* eslint-disable @typescript-eslint/semi */
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 
 @Component({
@@ -14,7 +15,7 @@ import { AuthService } from '../services/auth.service';
 export class LoginPage {
  email: any;
  password: any;
- constructor(public authService: AuthService){}
+ constructor(public authService: AuthService,public router: Router){}
 
  login(){
   const data = {
@@ -26,12 +27,15 @@ export class LoginPage {
     if(res.user.uid){
       this.authService.getDetails({uid:res.user.uid}).subscribe((res:any)=>{
         console.log('details result : ', res);
-        alert('welcome '+res['name']);
+         localStorage.setItem("uid",res['uid']);
+         localStorage.setItem("email",res['email']);
+        this.router.navigate(['/postspage'])
       },err => {
         console.log(err);
       })
     }
    })
  }
+
 
 }

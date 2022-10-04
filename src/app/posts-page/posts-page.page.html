@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar class="header">
     <ion-buttons slot="start">
-        <ion-button class="logout"><ion-icon name="lock-closed-outline"></ion-icon>&nbsp; Logout</ion-button>
+        <ion-button class="logout" (click)="logout()"><ion-icon name="lock-closed-outline" ></ion-icon>&nbsp; Logout</ion-button>
     </ion-buttons>
     <ion-title>
       Posts Page
@@ -9,13 +9,11 @@
   </ion-toolbar>
 </ion-header>
 <ion-content>
-    <div  class="header-menu">
+    <div class="header-menu">
         <ion-buttons>
-            <ion-button class="addPostbtn"><ion-icon name="add-circle-outline"></ion-icon>&nbsp;Post</ion-button>
-            <ion-button class="addPostbtn"><ion-icon name="person-add-outline"></ion-icon>&nbsp;Friend</ion-button>
-            <ion-button class="addPostbtn"><ion-icon name="settings-outline"></ion-icon>&nbsp;Settings</ion-button>
+            <ion-button class="addPostbtn" routerLink="/addpost"><ion-icon name="add-circle-outline"></ion-icon>&nbsp;Post</ion-button>
+            <ion-button class="addfriendbtn" routerLink="/addfriend"><ion-icon name="person-add-outline"></ion-icon>&nbsp;Friend</ion-button>
+            <ion-button class="settingsbtn" routerLink="/settings"><ion-icon name="settings-outline"></ion-icon>&nbsp;Settings</ion-button>
           </ion-buttons>
     </div>
-
-    
 </ion-content>

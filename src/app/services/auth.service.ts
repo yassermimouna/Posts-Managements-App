@@ -6,13 +6,15 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
   constructor(private auth:AngularFireAuth,
-    private firestore : AngularFirestore
+    private firestore : AngularFirestore,
+    public router: Router
     ){
   }
 
@@ -31,4 +33,11 @@ export class AuthService {
   login(data: any){
     return this.auth.signInWithEmailAndPassword(data.email,data.password);
   }
+
+
+ logout(){
+  localStorage.removeItem("uid");
+  localStorage.removeItem("email");
+  this.router.navigate(['/loginPage']);
+ }
 }
