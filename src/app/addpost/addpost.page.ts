@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./addpost.page.scss'],
 })
 export class AddpostPage implements OnInit {
-
+   title: any;
+   date: any ;
+   content : any ;
   constructor() { }
 
   ngOnInit() {
   }
 
+  addPost(){
+
+  }
 }
