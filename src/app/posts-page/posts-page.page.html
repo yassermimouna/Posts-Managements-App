@@ -16,4 +16,24 @@
             <ion-button class="settingsbtn" routerLink="/settings"><ion-icon name="settings-outline"></ion-icon>&nbsp;Settings</ion-button>
           </ion-buttons>
     </div>
+    <div class="separator">
+    </div>
+    <div class="single-post" *ngFor="let post of this.posts ; let i = index ;">
+      <ion-list>
+        <ion-item>
+        <ion-icon name="person-circle-outline" class="user-icon"></ion-icon>
+        <h4 class="username">{{post.owner}}</h4>
+        <ion-icon name="trash-outline" class="trash" (click)="deletePost(post.id)"></ion-icon>
+      </ion-item>
+      <div class="postContent">
+        <h5 class="title">{{post.title}}</h5>
+        <span>
+          {{post.content}}
+        </span>
+      </div>
+      </ion-list>
+    </div>
+    <div class="emptyPosts" *ngIf="!this.posts">
+       <h2 class="emptyText"> You don't have any posts Yet ! please add some !</h2>
+    </div>
 </ion-content>

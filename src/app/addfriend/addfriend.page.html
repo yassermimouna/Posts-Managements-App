@@ -11,5 +11,16 @@
 </ion-header>
 
 <ion-content>
-
+  <div class="separator">
+  </div>
+  <div class="single-post" *ngFor="let user of this.users ; let i = index ;">
+    <ion-list>
+      <ion-item>
+      <ion-icon name="person-circle-outline" class="user-icon"></ion-icon>
+      <h4 class="username">{{user.username}}</h4>
+    <div class="test">  <ion-icon name="add-circle-outline" class="addFriend" (click)="followUser(user.id)"></ion-icon>
+    </div>
+    </ion-item>
+    </ion-list>
+  </div>
 </ion-content>

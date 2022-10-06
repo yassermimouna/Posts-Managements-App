@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import {  Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
+import { IonModal } from '@ionic/angular';
 
 @Component({
   selector: 'app-register',
@@ -7,13 +9,14 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['registerPage.page.scss']
 })
 export class RegisterPage {
+  @ViewChild(IonModal) modal: IonModal;
   currentImage: any;
   username: any;
   email: any;
   password: any;
   phone: any;
-
-  constructor(public authService : AuthService) {  }
+  isOpen: boolean = false;
+  constructor(public authService : AuthService,public router:Router) {  }
 
 
    register(){
@@ -27,12 +30,20 @@ export class RegisterPage {
             uid: res.user.uid
           };
           this.authService.register(data).then(res => {
-            alert('account created ');
+            this.router.navigate(['/loginPage'])
           },err =>{
+            this.openModal();
             console.log(err);
           })
          }
-       })
+       },err => {
+        this.openModal();
+        console.log(err);
+      })
    }
+
+   openModal(){
+      this.isOpen = !this.isOpen;
+    }
 
 }

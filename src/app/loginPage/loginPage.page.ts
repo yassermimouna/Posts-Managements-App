@@ -23,12 +23,11 @@ export class LoginPage {
     password : this.password
   };
    this.authService.login(data).then(res => {
-    console.log(res);
     if(res.user.uid){
       this.authService.getDetails({uid:res.user.uid}).subscribe((res:any)=>{
-        console.log('details result : ', res);
          localStorage.setItem("uid",res['uid']);
-         localStorage.setItem("email",res['email']);
+         localStorage.setItem("role","user");
+         localStorage.setItem("username",res['username']);
         this.router.navigate(['/postspage'])
       },err => {
         console.log(err);

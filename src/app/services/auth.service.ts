@@ -36,8 +36,9 @@ export class AuthService {
 
 
  logout(){
+  localStorage.removeItem("role");
   localStorage.removeItem("uid");
-  localStorage.removeItem("email");
+  localStorage.removeItem("username");
   this.router.navigate(['/loginPage']);
  }
 }

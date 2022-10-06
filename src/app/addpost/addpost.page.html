@@ -34,4 +34,31 @@
     </form>
   </ion-card-content>
   </ion-card>
+  <ion-modal id="example-modal"  [isOpen]="this.isOpen">
+    <ng-template>
+      <div class="wrapper">
+        <h1>Post added Successfully  !</h1>
+
+        <ion-list lines="none">
+          <ion-item button="true" detail="false">
+            <ion-icon name="checkbox-outline" class="validated"></ion-icon>
+            <h3 class="dialog-item">Enjoy your journey in our Social media !</h3>
+          </ion-item>
+        </ion-list>
+      </div>
+    </ng-template>
+  </ion-modal>
+  <ion-modal id="example-modal"  [isOpen]="this.errorIsOpen">
+    <ng-template>
+      <div class="wrapper">
+        <h1>Verify your informations !</h1>
+        <ion-list lines="none">
+          <ion-item button="true" detail="false" (click)="this.openError()">
+            <ion-icon name="alert-circle-outline" class="alert"></ion-icon>
+            <h3 class="dialog-item" >Missing Information or Badly formatted !</h3>
+          </ion-item>
+        </ion-list>
+      </div>
+    </ng-template>
+  </ion-modal>
 </ion-content>

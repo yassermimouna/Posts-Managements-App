@@ -26,14 +26,30 @@
       </ion-item>
       <ion-item lines="full">
         <ion-label position="floating">Phone</ion-label>
-        <ion-input type="password" required [(ngModel)]="phone" [ngModelOptions]="{standalone: true}"></ion-input>
+        <ion-input type="text" required [(ngModel)]="phone" [ngModelOptions]="{standalone: true}"></ion-input>
       </ion-item>
       <ion-row>
         <ion-col>
-          <ion-button type="submit" expand="block"  class="col-login" (click)="register()">Register
+          <ion-button type="submit" expand="block"
+          id="123"
+          class="col-login" (click)="register()">Register
             <ion-icon name="log-in" class="icon-login"></ion-icon></ion-button>
         </ion-col>
       </ion-row>
     </form>
   </ion-card>
+  <ion-modal id="example-modal"  [isOpen]="this.isOpen">
+    <ng-template>
+      <div class="wrapper">
+        <h1>Verify your informations !</h1>
+
+        <ion-list lines="none">
+          <ion-item button="true" detail="false" (click)="this.openModal()">
+            <ion-icon name="alert-circle-outline" class="alert"></ion-icon>
+            <h3 class="dialog-item" >Missing Information or Badly formatted !</h3>
+          </ion-item>
+        </ion-list>
+      </div>
+    </ng-template>
+  </ion-modal>
 </ion-content>
