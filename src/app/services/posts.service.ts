@@ -31,7 +31,7 @@ export class PostsService {
     await this.firestore.collection("post")
     .get().subscribe(function(querySnapshot) {
         querySnapshot.forEach(function(doc:any) {
-            console.log(doc.id, " => ", doc.data());
+           // console.log(doc.id, " => ", doc.data());
            let data = {
               owner :  doc.data().owner,
               content : doc.data().content,

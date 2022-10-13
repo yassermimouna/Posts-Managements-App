@@ -12,7 +12,7 @@
     <div class="header-menu">
         <ion-buttons>
             <ion-button class="addPostbtn" routerLink="/addpost"><ion-icon name="add-circle-outline"></ion-icon>&nbsp;Post</ion-button>
-            <ion-button class="addfriendbtn" routerLink="/addfriend"><ion-icon name="person-add-outline"></ion-icon>&nbsp;Friend</ion-button>
+            <ion-button class="addfriendbtn" routerLink="/addfriend"><ion-icon name="people-circle-outline"></ion-icon>&nbsp;Collabs</ion-button>
             <ion-button class="settingsbtn" routerLink="/settings"><ion-icon name="settings-outline"></ion-icon>&nbsp;Settings</ion-button>
           </ion-buttons>
     </div>
@@ -22,8 +22,9 @@
       <ion-list>
         <ion-item>
         <ion-icon name="person-circle-outline" class="user-icon"></ion-icon>
-        <h4 class="username">{{post.owner}}</h4>
-        <ion-icon name="trash-outline" class="trash" (click)="deletePost(post.id)"></ion-icon>
+        <h4 class="username2" *ngIf="post.owner == this.userName">{{post.owner}}</h4>
+        <h4 class="username" *ngIf="post.owner != this.userName">{{post.owner}}</h4>
+        <ion-icon name="trash-outline" class="trash" (click)="deletePost(post.id)" *ngIf="post.owner == this.userName"></ion-icon>
       </ion-item>
       <div class="postContent">
         <h5 class="title">{{post.title}}</h5>
@@ -37,3 +38,4 @@
        <h2 class="emptyText"> You don't have any posts Yet ! please add some !</h2>
     </div>
 </ion-content>
+

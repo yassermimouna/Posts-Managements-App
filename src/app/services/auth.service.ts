@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
   providedIn: 'root',
 })
 export class AuthService {
+  isAuth = false;
   constructor(private auth:AngularFireAuth,
     private firestore : AngularFirestore,
     public router: Router
@@ -36,9 +37,18 @@ export class AuthService {
 
 
  logout(){
+  this.isAuth = false ;
   localStorage.removeItem("role");
   localStorage.removeItem("uid");
   localStorage.removeItem("username");
   this.router.navigate(['/loginPage']);
  }
+
+  getIsAuth(){
+  return this.isAuth;
+  }
+
+  isAuthUser(){
+    this.isAuth = true;
+  }
 }

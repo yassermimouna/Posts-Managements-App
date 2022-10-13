@@ -28,7 +28,8 @@ export class LoginPage {
          localStorage.setItem("uid",res['uid']);
          localStorage.setItem("role","user");
          localStorage.setItem("username",res['username']);
-        this.router.navigate(['/postspage'])
+         this.authService.isAuthUser();
+         this.router.navigate(['/postspage'])
       },err => {
         console.log(err);
       })

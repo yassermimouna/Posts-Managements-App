@@ -9,11 +9,15 @@ import { PostsService } from '../services/posts.service';
 })
 export class PostsPage implements OnInit {
   posts: any ;
-
+  role : any ;
+  userName : any ;
   constructor(public authService:AuthService, public postsService: PostsService) { }
 
  async  ngOnInit() {
   this.posts =   await this.postsService.getPostDetails();
+   this.role = localStorage.getItem('role');
+   this.userName = localStorage.getItem('username')
+   console.log(this.userName);
   }
 
   logout(){
