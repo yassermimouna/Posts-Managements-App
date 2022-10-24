@@ -43,4 +43,8 @@ export class UsersService {
     return this.firestore.collection('users').doc(id).delete();
   }
 
+  updateUser(user: any ){
+    return this.firestore.collection('users').doc(user.uid).update(user)
+  }
+
 }

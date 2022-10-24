@@ -10,7 +10,7 @@ ion-back-button {
   margin-top: 30px;
 }
 .username{
-  max-width: 180px;
+  max-width: 250px;
 }
 
 
@@ -31,5 +31,27 @@ ion-back-button {
   width: 30px;
   height: 30px;
 }
+
+
+.spinner{
+  width: 100px;
+  height: 100px;
+  margin-top:40px;
+  margin-left: 80px;
+}
+.welcome{
+  margin-left: 40px;
+  max-width: 280px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  border-color: rgb(58, 58, 58);
+  border: 20px;
+  background-color: rgb(75, 117, 255);
+}
+
+.trash{
+  display: flex;
+}
+
 
 

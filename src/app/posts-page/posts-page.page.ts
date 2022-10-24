@@ -11,22 +11,34 @@ export class PostsPage implements OnInit {
   posts: any ;
   role : any ;
   userName : any ;
+  userId : any ;
+  currentUser :any;
+  isLoading = true ;
+  admin = 'admin@admin.com'
   constructor(public authService:AuthService, public postsService: PostsService) { }
 
  async  ngOnInit() {
   this.posts =   await this.postsService.getPostDetails();
    this.role = localStorage.getItem('role');
+   this.userId = localStorage.getItem('uid');
    this.userName = localStorage.getItem('username')
-   console.log(this.userName);
+   this.authService.getDetails({uid: this.userId}).subscribe((item:any) => {
+    this.currentUser = item;
+    console.log(item)
+    this.isLoading = false ;
+   })
   }
 
   logout(){
     this.authService.logout();
   }
 
-  deletePost(postId : any){
-     let a = this.postsService.deletePost(postId);
-     window.location.reload();
+ async deletePost(postId : any){
+     await this.postsService.deletePost(postId).then(()=>
+        window.location.reload()
+     );
   }
+
+
 
 }

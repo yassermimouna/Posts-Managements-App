@@ -11,5 +11,35 @@
 </ion-header>
 
 <ion-content>
-
+   <ion-card class="welcome-card" *ngIf="!this.isLoading">
+    <ion-card-title class="card-title">Profile Details </ion-card-title>
+    <ion-card-content>
+    <form>
+      <ion-item lines="full">
+        <ion-label position="floating">User Name</ion-label>
+        <ion-input type="text" required [(ngModel)]="this.currentUser.username" [ngModelOptions]="{standalone: true}"></ion-input>
+      </ion-item>
+      <ion-item lines="full">
+        <ion-label position="floating">Email</ion-label>
+        <ion-input type="text" required  [(ngModel)]="this.currentUser.email" [ngModelOptions]="{standalone: true}"></ion-input>
+      </ion-item>
+      <ion-item lines="full">
+        <ion-label position="floating">Phone</ion-label>
+        <ion-input type="number" required  [(ngModel)]="this.currentUser.phone" [ngModelOptions]="{standalone: true}"></ion-input>
+      </ion-item>
+      <ion-item lines="full">
+        <ion-label position="floating">password</ion-label>
+        <ion-input type="password" required  [(ngModel)]="this.currentUser.password" [ngModelOptions]="{standalone: true}"></ion-input>
+      </ion-item>
+      <ion-row>
+        <ion-col>
+          <ion-button type="submit" expand="block"  class="col-login" (click)="updateProfile()">
+            <ion-icon name="create-outline"></ion-icon>&nbsp;
+            Update my profile
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </form>
+  </ion-card-content>
+  </ion-card>
 </ion-content>

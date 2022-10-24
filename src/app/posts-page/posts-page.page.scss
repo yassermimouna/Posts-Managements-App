@@ -61,6 +61,7 @@
   max-width: 180px;
 }
 .username2{
+  max-width: 180px;
    color: #1fc8fc;
 }
 
@@ -78,7 +79,6 @@
 
 #container {
   text-align: center;
-
   position: absolute;
   left: 0;
   right: 0;
@@ -102,4 +102,20 @@
 
 #container a {
   text-decoration: none;
+}
+
+.spinner{
+  width: 100px;
+  height: 100px;
+  margin-top:40px;
+  margin-left: 80px;
+}
+.welcome{
+  margin-left: 40px;
+  max-width: 280px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  border-color: rgb(58, 58, 58);
+  border: 20px;
+  background-color: rgb(75, 117, 255);
 }

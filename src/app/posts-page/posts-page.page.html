@@ -18,13 +18,15 @@
     </div>
     <div class="separator">
     </div>
-    <div class="single-post" *ngFor="let post of this.posts ; let i = index ;">
-      <ion-list>
+      <ion-spinner name="crescent" class="spinner" *ngIf="this.isLoading" ></ion-spinner>
+      <div *ngIf="!this.isLoading" class="welcome"><h3>&nbsp;&nbsp;Welcome Mr {{ this.currentUser.username |uppercase}}</h3></div>
+      <div class="single-post" *ngFor="let post of this.posts ; let i = index ;">
+      <ion-list *ngIf="!this.isLoading">
         <ion-item>
         <ion-icon name="person-circle-outline" class="user-icon"></ion-icon>
-        <h4 class="username2" *ngIf="post.owner == this.userName">{{post.owner}}</h4>
-        <h4 class="username" *ngIf="post.owner != this.userName">{{post.owner}}</h4>
-        <ion-icon name="trash-outline" class="trash" (click)="deletePost(post.id)" *ngIf="post.owner == this.userName"></ion-icon>
+        <h4 class="username2" *ngIf="post.ownerId == this.userId">{{post.owner}}</h4>
+        <h4 class="username" *ngIf="post.ownerId != this.userId">{{post.owner}}</h4>
+        <ion-icon name="trash-outline" class="trash" (click)="deletePost(post.id)" *ngIf="post.ownerId == this.userId || this.currentUser.email == this.admin"></ion-icon>
       </ion-item>
       <div class="postContent">
         <h5 class="title">{{post.title}}</h5>
